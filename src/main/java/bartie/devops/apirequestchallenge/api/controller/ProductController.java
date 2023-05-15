@@ -40,4 +40,13 @@ public class ProductController extends ModelController {
         return resp.getBody();
     }
     
+    @GetMapping("{q}")
+    public List<ProductDTO> searchProducts(@PathVariable("q") String query)
+    {
+        var url = getURLBySearch(query);
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
+        return resp.getBody().getProducts();
+    }
+
 }

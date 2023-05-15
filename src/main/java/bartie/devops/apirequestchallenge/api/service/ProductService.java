@@ -50,7 +50,18 @@ public class ProductService
 	}
 	
 	public List<ProductDTO> searchProducts(String query)
-	{ return null; }
+	{ 
+
+		var list = controller.searchProducts(query);
+
+		if (list == null) throw new RequiredObjectIsNullException();
+
+		logger.info(String.format("Search Products like '%s' >> %s items", query, list.size()));
+	
+		return list; 
+
+
+	 }
 
 	public List<CategoryDTO> getCategories()
 	{ return null; }

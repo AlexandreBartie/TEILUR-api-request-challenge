@@ -17,6 +17,11 @@ public class ModelController extends ModelSettings {
     public String getURL(Integer id)
     {
         return HostAPI.getURL(route, id);
+    }
+
+    public String getURLBySearch(String query)
+    {
+        return HostAPI.getURLBySearch(route, query);
     } 
    
 }

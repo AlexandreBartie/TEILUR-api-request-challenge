@@ -20,4 +20,9 @@ class HostApiSettings {
         return String.format(getURL(route)+"/%s", id);
     } 
 
+    public String getURLBySearch(String route, String query)
+    {
+        return String.format(getURL(route)+"/search?q=%s", query);
+    } 
+
 }

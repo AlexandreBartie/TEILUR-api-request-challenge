@@ -15,8 +15,6 @@ import bartie.devops.apirequestchallenge.api.service.ProductService;
 @TestInstance(Lifecycle.PER_CLASS)
 public class ProductServiceTest {
 
-    private Integer input;
-
     private ProductService service;
 
     public ProductServiceTest()
@@ -34,7 +32,7 @@ public class ProductServiceTest {
 
         // Arrange
 
-        input = 1;
+        var input = 1;
 
         // Act
 
@@ -54,7 +52,6 @@ public class ProductServiceTest {
 
         // Arrange
 
-        input = 1;
 
         // Act
 
@@ -64,6 +61,25 @@ public class ProductServiceTest {
 
         assertNotNull(output);
         assertEquals(output.size(), 30);
+       
+
+    }
+
+    @Test
+    public void SearchProducts() {
+
+        // Arrange
+
+        var input = "phone";
+
+        // Act
+
+        List<ProductDTO> output = service.searchProducts(input);
+
+        // Assert
+
+        assertNotNull(output);
+        assertEquals(output.size(), 4);
        
 
     }
