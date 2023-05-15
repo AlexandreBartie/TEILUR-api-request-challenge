@@ -1,9 +1,9 @@
-package bartie.devops.apirequestchallenge.contract;
+package bartie.devops.apirequestchallenge.api.contract;
 
 import java.util.List;
 
-import bartie.devops.apirequestchallenge.model.CategoryDTO;
-import bartie.devops.apirequestchallenge.model.ProductDTO;
+import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
+import bartie.devops.apirequestchallenge.api.model.ProductDTO;
 
 public interface ProductInterface<P extends ProductDTO, C extends CategoryDTO> {
 

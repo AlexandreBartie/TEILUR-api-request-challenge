@@ -1,4 +1,4 @@
-package bartie.devops.apirequestchallenge.exceptions;
+package bartie.devops.apirequestchallenge.app.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

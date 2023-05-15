@@ -2,13 +2,15 @@ package bartie.devops.apirequestchallenge.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-import bartie.devops.apirequestchallenge.model.ProductDTO;
-import bartie.devops.apirequestchallenge.service.ProductService;
+import bartie.devops.apirequestchallenge.api.model.ProductDTO;
+import bartie.devops.apirequestchallenge.api.service.ProductService;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class ProductServiceTest {
@@ -44,6 +46,25 @@ public class ProductServiceTest {
         assertEquals(output.getId(), 1);
         assertEquals(output.getTitle(), "iPhone 9");
         
+
+    }
+
+    @Test
+    public void GetProducts() {
+
+        // Arrange
+
+        input = 1;
+
+        // Act
+
+        List<ProductDTO> output = service.getAllProducts();
+
+        // Assert
+
+        assertNotNull(output);
+        assertEquals(output.size(), 30);
+       
 
     }
 

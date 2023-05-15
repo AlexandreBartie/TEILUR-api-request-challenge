@@ -1,14 +1,14 @@
-package bartie.devops.apirequestchallenge.service;
+package bartie.devops.apirequestchallenge.api.service;
 
 import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
-import bartie.devops.apirequestchallenge.controller.ProductController;
-import bartie.devops.apirequestchallenge.exceptions.RequiredObjectIsNullException;
-import bartie.devops.apirequestchallenge.model.CategoryDTO;
-import bartie.devops.apirequestchallenge.model.ProductDTO;
+import bartie.devops.apirequestchallenge.api.controller.ProductController;
+import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
+import bartie.devops.apirequestchallenge.api.model.ProductDTO;
+import bartie.devops.apirequestchallenge.app.exceptions.RequiredObjectIsNullException;
 
 @Service
 public class ProductService
@@ -24,7 +24,15 @@ public class ProductService
     }
 
 	public List<ProductDTO> getAllProducts()
-	{ return null; }
+	{ 
+		var list = controller.getAllProducts();
+
+		if (list == null) throw new RequiredObjectIsNullException();
+
+		logger.info("Get Product! >> " + list.size());
+	
+		return list; 
+	 }
 
 	public List<ProductDTO> getAllProducts(int limit, int skip, String... fields)
 	{ return null; }
