@@ -2,7 +2,10 @@ package bartie.devops.apirequestchallenge.contract;
 
 import java.util.List;
 
-public interface ProductInterface<P, C> {
+import bartie.devops.apirequestchallenge.model.CategoryDTO;
+import bartie.devops.apirequestchallenge.model.ProductDTO;
+
+public interface ProductInterface<P extends ProductDTO, C extends CategoryDTO> {
 
 	/*
 	 * Get all products of TestMart
