@@ -1,44 +1,29 @@
 package bartie.devops.apirequestchallenge.service;
-// Note: the generic type parameters P and C are used to represent the types of the product and category, respectively
 
 import java.util.List;
 
-public interface ProductService<P, C> {
+import org.springframework.stereotype.Service;
 
-	/*
-	 * Get all products of TestMart
-	 * API endpoint to get data: https://dummyjson.com/products
-	 */
-	List<P> getAllProducts();
+import bartie.devops.apirequestchallenge.contract.ProductInterface;
 
-	/*
-	 * Get all products of TestMart using parameters
-	 * API endpoint to get data: https://dummyjson.com/products?limit={limit}&skip={skip}&select={comma separated
-	 * fields of product}
-	 */
-	List<P> getAllProducts(int limit, int skip, String... fields);
+@Service
+public class ProductService<P, C> implements ProductInterface<P, C> {
 
-	/*
-	 * Get a single product
-	 * API endpoint to get data: https://dummyjson.com/products/{productId}
-	 */
-	P getProduct(Integer productId);
+	public List<P> getAllProducts()
+	{ return null; }
 
-	/**
-	 * Search for products in TestMart
-	 * API endpoint to get data: https://dummyjson.com/products/search?q={query}
-	 */
-	List<P> searchProducts(String query);
+	public List<P> getAllProducts(int limit, int skip, String... fields)
+	{ return null; }
 
-	/*
-	 * Get all products categories in TestMart
-	 * API endpoint to get data: https://dummyjson.com/products/categories
-	 */
-	List<C> getCategories();
+	public P getProduct(Integer productId)
+	{ return null; }
+	
+	public List<P> searchProducts(String query)
+	{ return null; }
 
-	/*
-	 * Get all products of a category
-	 * API endpoint to get data: https://dummyjson.com/products/category/{categoryName}
-	 */
-	List<P> getProductsByCategory(String categoryName);
+	public List<C> getCategories()
+	{ return null; }
+
+	public List<P> getProductsByCategory(String categoryName)
+	{ return null; }
 }

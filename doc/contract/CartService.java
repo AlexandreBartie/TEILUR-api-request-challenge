@@ -1,6 +1,3 @@
-package bartie.devops.apirequestchallenge.service;
-
-
 import java.util.List;
 
 public interface CartService<T> {

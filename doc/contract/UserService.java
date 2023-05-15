@@ -1,5 +1,4 @@
-package bartie.devops.apirequestchallenge.service;
-// Note: the generic type parameter U is used to represent the type of the user.
+
 
 import java.util.List;
 
