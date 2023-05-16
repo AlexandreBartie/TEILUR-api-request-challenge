@@ -36,7 +36,7 @@ public class CartServiceTest {
 
         assertNotNull(output);
         assertEquals(output.getId(), 1);
-        assertEquals(output.fullValue(), "2328.0 5.0 10.0");
+        assertEquals(output.fullValue(), "1 2328.0 5.0 10.0");
         
 
     }
@@ -55,8 +55,8 @@ public class CartServiceTest {
 
         assertNotNull(output);
         assertEquals(output.size(), 20);
-        assertEquals(output.get(0).fullValue(), "2328.0 5.0 10.0");
-        assertEquals(output.get(19).fullValue(), "315.0 5.0 8.0");
+        assertEquals(output.get(0).fullValue(), "1 2328.0 5.0 10.0");
+        assertEquals(output.get(19).fullValue(), "20 315.0 5.0 8.0");
        
 
     }
@@ -76,7 +76,7 @@ public class CartServiceTest {
 
         assertNotNull(output);
         assertEquals(output.size(), 1);
-        assertEquals(output.get(0).fullValue(), "1129.0 5.0 9.0");    
+        assertEquals(output.get(0).fullValue(), "8 1129.0 5.0 9.0");    
 
     }
 

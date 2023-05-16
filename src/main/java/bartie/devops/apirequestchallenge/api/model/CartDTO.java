@@ -25,7 +25,7 @@ public class CartDTO
     private Double totalQuantity;
 
     public String fullValue()
-    { return total.toString() + " " + totalProducts.toString() + " " + totalQuantity.toString()  ; } 
+    { return id.toString() + " " + total.toString() + " " + totalProducts.toString() + " " + totalQuantity.toString()  ; } 
         
 }
 

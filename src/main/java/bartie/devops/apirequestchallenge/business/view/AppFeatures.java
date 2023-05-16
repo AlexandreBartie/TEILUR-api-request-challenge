@@ -4,6 +4,7 @@ import java.util.List;
 
 import bartie.devops.apirequestchallenge.api.model.CartDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
+import bartie.devops.apirequestchallenge.business.core.CartRanking;
 import bartie.devops.apirequestchallenge.business.core.ProductRating;
 import bartie.devops.apirequestchallenge.contract.AppFeaturesInterface;
 
@@ -34,13 +35,17 @@ public class AppFeatures implements AppFeaturesInterface<ProductDTO, CartDTO> {
     @Override
     public CartDTO getCartWithLowestTotal() {
         
-        return null;
+        var calc = new CartRanking();
+
+        return calc.getCartWithLowestTotal();
     }
 
     @Override
     public CartDTO getCartWithHighestTotal() {
         
-        return null;
+        var calc = new CartRanking();
+
+        return calc.getCartWithHighestTotal();
     }
 
     @Override
