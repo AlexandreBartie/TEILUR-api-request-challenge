@@ -10,8 +10,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class UserListDTO extends ModelList {
+public class UserListDTO extends ModelList<UserDTO> {
 
     private List<UserDTO> users;
+
+    @Override
+    public List<UserDTO> getItems() {
+        return users;
+    }
 
 }

@@ -9,8 +9,13 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductListDTO extends ModelList {
+public class ProductListDTO extends ModelList<ProductDTO> {
 
     private List<ProductDTO> products;
+
+    @Override
+    public List<ProductDTO> getItems() {
+        return products;
+    }
 
 }

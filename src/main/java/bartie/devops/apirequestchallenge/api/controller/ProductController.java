@@ -20,7 +20,7 @@ import bartie.devops.apirequestchallenge.api.list.ProductListDTO;
 
 @RestController
 @RequestMapping("/products")
-public class ProductController extends ModelController {
+public class ProductController extends ModelController<ProductDTO, ProductListDTO> {
 
     public ProductController()
     {
@@ -30,10 +30,10 @@ public class ProductController extends ModelController {
     @GetMapping("")
     public List<ProductDTO> getAllProducts()
     {
-        var url = getURL();
-        RestTemplate rest = new RestTemplate();
-        ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
-        return resp.getBody().getProducts();
+        // var url = host.getURL();
+        // RestTemplate rest = new RestTemplate();
+        // ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
+        return getAllItems(ProductListDTO.class); // resp.getBody().getProducts();
     }
 
     @GetMapping("")
@@ -42,7 +42,7 @@ public class ProductController extends ModelController {
         @RequestParam(name = "skip", defaultValue = "0") int skip,
         @RequestParam(name = "select", defaultValue = "") String select)
         {      
-        var url = getURLByPage(limit, skip, select);
+        var url = host.getURLByPage(limit, skip, select);
         RestTemplate rest = new RestTemplate();
         ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
         return resp.getBody().getProducts();
@@ -51,7 +51,7 @@ public class ProductController extends ModelController {
     @GetMapping("{id}")
     public ProductDTO getProduct(@PathVariable("id") Integer id)
     {
-        var url = getURL(id);
+        var url = host.getURL(id);
         RestTemplate rest = new RestTemplate();
         ResponseEntity<ProductDTO> resp = rest.getForEntity(url, ProductDTO.class);
         return resp.getBody();
@@ -60,7 +60,7 @@ public class ProductController extends ModelController {
     @GetMapping("{q}")
     public List<ProductDTO> searchProducts(@PathVariable("q") String query)
     {
-        var url = getURLBySearch(query);
+        var url = host.getURLBySearch(query);
         RestTemplate rest = new RestTemplate();
         ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
         return resp.getBody().getProducts();
@@ -69,7 +69,7 @@ public class ProductController extends ModelController {
     @GetMapping("")
     public List<CategoryDTO> getCategories()
     {
-        var url = getURLByDomain("categories");
+        var url = host.getURLByDomain("categories");
         RestTemplate rest = new RestTemplate();
         ResponseEntity<String[]> resp = rest.getForEntity(url, String[].class);
         
@@ -81,7 +81,7 @@ public class ProductController extends ModelController {
     @GetMapping("")
     public List<ProductDTO> getProductsByCategory(String categoryName)
     {
-        var url = getURLByDomain("category", categoryName);
+        var url = host.getURLByDomain("category", categoryName);
         RestTemplate rest = new RestTemplate();
         ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
         return resp.getBody().getProducts();

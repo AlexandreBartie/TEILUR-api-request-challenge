@@ -1,5 +1,7 @@
 package bartie.devops.apirequestchallenge.app.core;
 
+import java.util.List;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,10 +11,12 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode()
 @ToString
-public class ModelList {
+public abstract class ModelList<T> {
 
     private Integer total;
     private Integer skip;
-    private Integer limit;  
+    private Integer limit;
+
+    public abstract List<T> getItems();
     
 }
