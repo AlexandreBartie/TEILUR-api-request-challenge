@@ -48,20 +48,12 @@ public class ProductController extends ModelController<ProductDTO, ProductListDT
     @GetMapping("{id}")
     public ProductDTO getProduct(@PathVariable("id") Integer id)
     {
-        // var url = host.getURL(id);
-        // RestTemplate rest = new RestTemplate();
-        // ResponseEntity<ProductDTO> resp = rest.getForEntity(url, ProductDTO.class);
-        // return resp.getBody();
         return getItem(id, ProductDTO.class);
     }
     
     @GetMapping("{q}")
     public List<ProductDTO> searchProducts(@PathVariable("q") String query)
     {
-        // var url = host.getURLBySearch(query);
-        // RestTemplate rest = new RestTemplate();
-        // ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
-        // return resp.getBody().getProducts();
         return searchItems(query, ProductListDTO.class);
     }
 

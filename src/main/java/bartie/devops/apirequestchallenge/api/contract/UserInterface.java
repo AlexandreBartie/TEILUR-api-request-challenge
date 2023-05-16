@@ -3,7 +3,9 @@ package bartie.devops.apirequestchallenge.api.contract;
 
 import java.util.List;
 
-public interface UserInterface<U> {
+import bartie.devops.apirequestchallenge.api.model.UserDTO;
+
+public interface UserInterface<U extends UserDTO> {
 
 	/*
 	 * Get all users of TestMart

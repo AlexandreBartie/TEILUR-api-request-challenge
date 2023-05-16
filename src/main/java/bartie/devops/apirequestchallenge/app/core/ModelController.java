@@ -37,5 +37,13 @@ public class ModelController<T, L extends ModelList<T>> {
         ResponseEntity<L> resp = rest.getForEntity(url, list);
         return resp.getBody().getItems();
     }
+
+    public List<T> getGroup(String domain, Integer id, Class<L> list)
+    {
+        var url = host.getURLByDomainID(domain, id);
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<L> resp = rest.getForEntity(url, list);
+        return resp.getBody().getItems();
+    }
     
 }

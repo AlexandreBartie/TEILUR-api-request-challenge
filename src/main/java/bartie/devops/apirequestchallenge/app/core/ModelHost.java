@@ -34,6 +34,11 @@ public class ModelHost extends ModelSettings {
         return HostAPI.getURLByDomain(route, domain, subDomain);
     } 
 
+    public String getURLByDomainID(String domain, Integer id)
+    {
+        return getURLByDomain(domain, id.toString());
+    } 
+
     public String getURLByPage(Integer limit, Integer skip, String select)
     {
         return HostAPI.getURLByPage(route, limit, skip, select);
