@@ -34,4 +34,9 @@ public class ModelController extends ModelSettings {
         return HostAPI.getURLByDomain(route, domain, subDomain);
     } 
 
+    public String getURLByPage(Integer limit, Integer skip, String select)
+    {
+        return HostAPI.getURLByPage(route, limit, skip, select);
+    } 
+
 }

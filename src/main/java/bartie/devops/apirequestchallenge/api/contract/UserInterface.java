@@ -1,8 +1,9 @@
+package bartie.devops.apirequestchallenge.api.contract;
 
 
 import java.util.List;
 
-public interface UserService<U> {
+public interface UserInterface<U> {
 
 	/*
 	 * Get all users of TestMart

@@ -5,15 +5,11 @@ import java.util.List;
 
 import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
-@EqualsAndHashCode()
-@ToString
 public class CategoryListDTO {
 
     private List<CategoryDTO> categories;

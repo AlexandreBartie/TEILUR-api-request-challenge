@@ -5,14 +5,13 @@ import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
-import bartie.devops.apirequestchallenge.api.contract.ProductInterface;
 import bartie.devops.apirequestchallenge.api.controller.ProductController;
 import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
 import bartie.devops.apirequestchallenge.app.exceptions.RequiredObjectIsNullException;
 
 @Service
-public class ProductService implements ProductInterface<ProductDTO, CategoryDTO>
+public class ProductService
 {
 
 	private ProductController controller;
@@ -24,8 +23,8 @@ public class ProductService implements ProductInterface<ProductDTO, CategoryDTO>
 		logger = Logger.getLogger(ProductService.class.getName());
     }
 
-	public List<ProductDTO> getAllProducts()
-	{ 
+	public List<ProductDTO> getAllProducts() 
+	{
 		var list = controller.getAllProducts();
 
 		if (list == null) throw new RequiredObjectIsNullException();
@@ -33,10 +32,18 @@ public class ProductService implements ProductInterface<ProductDTO, CategoryDTO>
 		logger.info(String.format("Get All Products! >> %s items", list.size()));
 
 		return list; 
-	 }
+	}
 
-	public List<ProductDTO> getAllProducts(int limit, int skip, String... fields)
-	{ return null; }
+	public List<ProductDTO> getAllProducts(Integer limit, Integer skip, String select )
+	{ 
+		var list = controller.getAllProducts(limit, skip, select);
+
+		if (list == null) throw new RequiredObjectIsNullException();
+
+		logger.info(String.format("Get Page Products! >> %s items", list.size()));
+
+		return list; 
+	 }
 
 	public ProductDTO getProduct(Integer productId)
 	{ 
@@ -90,4 +97,5 @@ public class ProductService implements ProductInterface<ProductDTO, CategoryDTO>
 		return list; 
 
 	 }
+
 }

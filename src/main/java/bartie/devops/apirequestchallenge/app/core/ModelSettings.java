@@ -28,10 +28,16 @@ class HostApiSettings {
     public String getURLByDomain(String route, String domain, String subDomain)
     {
         var complement = domain;
-        
+
         if (subDomain != "")
         complement += "/" + subDomain;
         
         return getURL(route) + "/" + complement;
+    }
+    
+    public String getURLByPage(String route, Integer limit, Integer skip, String select)
+    {
+        return String.format(getURL(route)+"?limit=%s&skip=%s&select=%s", limit, skip, select);
     } 
+
 }

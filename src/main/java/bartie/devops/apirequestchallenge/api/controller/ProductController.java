@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,7 +15,6 @@ import bartie.devops.apirequestchallenge.app.core.ModelController;
 
 import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
-
 import bartie.devops.apirequestchallenge.api.list.CategoryListDTO;
 import bartie.devops.apirequestchallenge.api.list.ProductListDTO;
 
@@ -31,6 +31,18 @@ public class ProductController extends ModelController {
     public List<ProductDTO> getAllProducts()
     {
         var url = getURL();
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
+        return resp.getBody().getProducts();
+    }
+
+    @GetMapping("")
+    public List<ProductDTO> getAllProducts(
+        @RequestParam(name = "limit", defaultValue = "10") int limit,
+        @RequestParam(name = "skip", defaultValue = "0") int skip,
+        @RequestParam(name = "select", defaultValue = "") String select)
+        {      
+        var url = getURLByPage(limit, skip, select);
         RestTemplate rest = new RestTemplate();
         ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
         return resp.getBody().getProducts();
@@ -66,7 +78,7 @@ public class ProductController extends ModelController {
         return list.getCategories() ;
     }
 
-    @GetMapping("{q}")
+    @GetMapping("")
     public List<ProductDTO> getProductsByCategory(String categoryName)
     {
         var url = getURLByDomain("category", categoryName);
@@ -74,6 +86,7 @@ public class ProductController extends ModelController {
         ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
         return resp.getBody().getProducts();
     }
-    
+
+  
 
 }

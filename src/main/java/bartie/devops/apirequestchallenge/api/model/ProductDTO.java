@@ -9,7 +9,6 @@ import lombok.ToString;
 @Setter
 @EqualsAndHashCode()
 @ToString
-
 public class ProductDTO {
 
     private Integer id;
