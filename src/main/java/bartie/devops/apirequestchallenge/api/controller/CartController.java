@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import bartie.devops.apirequestchallenge.api.list.CartListDTO;
 import bartie.devops.apirequestchallenge.api.model.CartDTO;
-import bartie.devops.apirequestchallenge.app.core.ModelController;
+import bartie.devops.apirequestchallenge.app.model.ModelController;
 
 @RestController
 @RequestMapping("/users")

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import bartie.devops.apirequestchallenge.api.list.UserListDTO;
 import bartie.devops.apirequestchallenge.api.model.UserDTO;
-import bartie.devops.apirequestchallenge.app.core.ModelController;
+import bartie.devops.apirequestchallenge.app.model.ModelController;
 
 @RestController
 @RequestMapping("/users")

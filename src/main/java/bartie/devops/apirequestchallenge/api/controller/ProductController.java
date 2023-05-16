@@ -10,11 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-
-import bartie.devops.apirequestchallenge.app.core.ModelController;
-
 import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
+import bartie.devops.apirequestchallenge.app.model.ModelController;
 import bartie.devops.apirequestchallenge.api.list.CategoryListDTO;
 import bartie.devops.apirequestchallenge.api.list.ProductListDTO;
 

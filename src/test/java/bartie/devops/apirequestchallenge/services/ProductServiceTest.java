@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
-import bartie.devops.apirequestchallenge.api.contract.PageInterface;
 import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
 import bartie.devops.apirequestchallenge.api.service.ProductService;
+import bartie.devops.apirequestchallenge.contract.PageInterface;
 
 @TestInstance(Lifecycle.PER_CLASS)
 public class ProductServiceTest {

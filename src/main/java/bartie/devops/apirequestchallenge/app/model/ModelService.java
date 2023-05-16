@@ -1,4 +1,4 @@
-package bartie.devops.apirequestchallenge.app.core;
+package bartie.devops.apirequestchallenge.app.model;
 
 // import java.util.logging.Logger;
 

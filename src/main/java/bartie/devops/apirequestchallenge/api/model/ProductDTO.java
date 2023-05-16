@@ -22,5 +22,8 @@ public class ProductDTO {
     private String category;
     private String thumbnail;
     private String[] images;
+
+    public String fullRating()
+    { return getTitle() + " - " + getRating(); }
  
 }

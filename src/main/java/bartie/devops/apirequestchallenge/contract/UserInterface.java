@@ -1,4 +1,4 @@
-package bartie.devops.apirequestchallenge.api.contract;
+package bartie.devops.apirequestchallenge.contract;
 
 
 import java.util.List;

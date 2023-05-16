@@ -1,6 +1,10 @@
+package bartie.devops.apirequestchallenge.contract;
+
+import java.util.List;
+
 // Note: Convert this class to concrete class and add implementation (missing body) to all methods. You will remove the word
 // `abstract` everywhere. This class is only kept `abstract` for the sake of interview exercise.
-public abstract class AbstractTestMartAppFeatures {
+public interface AppFeaturesInterface<T, C> {
 
 	/**
 	 * Prints the titles of all products that have a rating less than or equal to the provided criteria.
@@ -12,13 +16,13 @@ public abstract class AbstractTestMartAppFeatures {
 	 * Returns the cart with the highest total value.
 	 * @returns The cart with the highest total value.
 	 */
-	public abstract Cart getCartWithHighestTotal();
+	public abstract C getCartWithHighestTotal();
 
 	/**
 	 * Returns the cart with the lowest total value.
 	 * @returns The cart with the lowest total value.
 	 */
-	public abstract Cart getCartWithLowestTotal();
+	public abstract C getCartWithLowestTotal();
 
 	/**
 	 * Enriches the product information in a user's cart by adding product images.
@@ -28,5 +32,5 @@ public abstract class AbstractTestMartAppFeatures {
 	 * @param userId The ID of the user whose cart's product information will be enriched.
 	 * @returns A list of products with enriched information in the user's cart.
 	 */
-	public abstract List<Product> addProductImagesToUserCart(Integer userId);
+	public abstract List<T> addProductImagesToUserCart(Integer userId);
 }

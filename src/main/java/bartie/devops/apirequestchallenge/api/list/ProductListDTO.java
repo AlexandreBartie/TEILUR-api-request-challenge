@@ -2,8 +2,7 @@ package bartie.devops.apirequestchallenge.api.list;
 
 import java.util.List;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
-import bartie.devops.apirequestchallenge.app.core.ModelList;
-
+import bartie.devops.apirequestchallenge.app.model.ModelList;
 import lombok.Getter;
 import lombok.Setter;
 
