@@ -9,9 +9,9 @@ The goal is to access an API server called DUMMY-JSON and implement different in
 
 * Complete implementation a business interface called AppFeatures where exist 4 operations:
 > 1. public abstract void getProductTitlesByWorseRating(double rating);
-> 1. public astract Cart getCartWithHighestTotal();
-> 1. public abstract Cart getCartWithLowestTotal();
-> 1. public abstract List<Product> addProductImagesToUserCart(Integer userId);
+> 2. public astract Cart getCartWithHighestTotal();
+> 3. public abstract Cart getCartWithLowestTotal();
+> 4. public abstract List<Product> addProductImagesToUserCart(Integer userId);
 
 # Tecnologies and Tools involved
 
