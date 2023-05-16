@@ -19,7 +19,7 @@ public class ProductService
 	private Logger logger;
 
     public ProductService() {
-		controller = new ProductController();
+		controller = new ProductController ();
 		logger = Logger.getLogger(ProductService.class.getName());
     }
 

@@ -14,11 +14,27 @@ public class ModelController<T, L extends ModelList<T>> {
         this.host = new ModelHost(route);
     }
 
-    public List<T> getAllItems(Class<L> reference)
+    public List<T> getItems(Class<L> list)
     {
         var url = host.getURL();
         RestTemplate rest = new RestTemplate();
-        ResponseEntity<L> resp = rest.getForEntity(url, reference);
+        ResponseEntity<L> resp = rest.getForEntity(url, list);
+        return resp.getBody().getItems();
+    }
+
+    public T getItem(Integer id, Class<T> item)
+    {
+        var url = host.getURL(id);
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<T> resp = rest.getForEntity(url, item);
+        return resp.getBody();
+    }
+    
+    public List<T> searchItems(String query, Class<L> list)
+    {
+        var url = host.getURLBySearch(query);
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<L> resp = rest.getForEntity(url, list);
         return resp.getBody().getItems();
     }
     

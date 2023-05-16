@@ -14,5 +14,8 @@ public class UserDTO {
     private Integer id;
     private String firstName;
     private String lastName;
- 
+    private String email;
+
+    public String fullKey()
+    { return firstName.trim() + " " + lastName.trim() + " " + email.trim()  ; } 
 }

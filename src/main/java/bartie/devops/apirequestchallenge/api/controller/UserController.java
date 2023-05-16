@@ -14,23 +14,24 @@ import bartie.devops.apirequestchallenge.app.core.ModelController;
 @RequestMapping("/users")
 public class UserController extends ModelController<UserDTO, UserListDTO> {
 
-    public UserController(String route) {
-        super("users");
+    public UserController() 
+    {
+        super("/users");
     }
 
     @GetMapping("")
     public List<UserDTO> getAllUsers() {
-        return getAllItems(UserListDTO.class);
+        return getItems(UserListDTO.class);
     }
 
     @GetMapping("{id}")
     public UserDTO getUser(Integer id) {
-        return null;
+        return getItem(id, UserDTO.class);
     }
 
     @GetMapping("{q}")
     public List<UserDTO> searchUsers(String query) {
-        return null;
+        return searchItems(query, UserListDTO.class);
     }
     
 }
