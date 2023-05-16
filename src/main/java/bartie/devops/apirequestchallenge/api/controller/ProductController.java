@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import bartie.devops.apirequestchallenge.api.list.ProductListDTO;
-import bartie.devops.apirequestchallenge.api.model.ProductDTO;
+
 import bartie.devops.apirequestchallenge.app.core.ModelController;
+
+import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
+import bartie.devops.apirequestchallenge.api.model.ProductDTO;
+
+import bartie.devops.apirequestchallenge.api.list.CategoryListDTO;
+import bartie.devops.apirequestchallenge.api.list.ProductListDTO;
 
 @RestController
 @RequestMapping("/products")
@@ -48,5 +53,27 @@ public class ProductController extends ModelController {
         ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
         return resp.getBody().getProducts();
     }
+
+    @GetMapping("")
+    public List<CategoryDTO> getCategories()
+    {
+        var url = getURLByDomain("categories");
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<String[]> resp = rest.getForEntity(url, String[].class);
+        
+        var list = new CategoryListDTO(resp.getBody());
+        
+        return list.getCategories() ;
+    }
+
+    @GetMapping("{q}")
+    public List<ProductDTO> getProductsByCategory(String categoryName)
+    {
+        var url = getURLByDomain("category", categoryName);
+        RestTemplate rest = new RestTemplate();
+        ResponseEntity<ProductListDTO> resp = rest.getForEntity(url, ProductListDTO.class);
+        return resp.getBody().getProducts();
+    }
+    
 
 }

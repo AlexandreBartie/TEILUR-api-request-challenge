@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 
+import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
 import bartie.devops.apirequestchallenge.api.service.ProductService;
 
@@ -28,7 +29,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void GetProduct() {
+    public void getProduct() {
 
         // Arrange
 
@@ -48,7 +49,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void GetProducts() {
+    public void getAllProducts() {
 
         // Arrange
 
@@ -66,7 +67,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void SearchProducts() {
+    public void searchProducts() {
 
         // Arrange
 
@@ -79,10 +80,44 @@ public class ProductServiceTest {
         // Assert
 
         assertNotNull(output);
-        assertEquals(output.size(), 4);
-       
+        assertEquals(output.size(), 4);    
 
     }
+
+    @Test
+    public void getCategories() {
+
+        // Arrange
+
+
+        // Act
+
+        List<CategoryDTO> output = service.getCategories();
+
+        // Assert
+
+        assertNotNull(output);
+        assertEquals(output.size(), 20);    
+
+    }
+
+    @Test
+    public void getProductsByCategory() {
+
+        // Arrange
+        var input = "smartphones";
+
+        // Act
+
+        List<ProductDTO> output = service.getProductsByCategory(input);
+
+        // Assert
+
+        assertNotNull(output);
+        assertEquals(output.size(), 5);    
+
+    }
+
 
 }
 

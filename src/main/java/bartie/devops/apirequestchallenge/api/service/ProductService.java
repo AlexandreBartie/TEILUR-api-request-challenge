@@ -5,13 +5,14 @@ import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
+import bartie.devops.apirequestchallenge.api.contract.ProductInterface;
 import bartie.devops.apirequestchallenge.api.controller.ProductController;
 import bartie.devops.apirequestchallenge.api.model.CategoryDTO;
 import bartie.devops.apirequestchallenge.api.model.ProductDTO;
 import bartie.devops.apirequestchallenge.app.exceptions.RequiredObjectIsNullException;
 
 @Service
-public class ProductService
+public class ProductService implements ProductInterface<ProductDTO, CategoryDTO>
 {
 
 	private ProductController controller;
@@ -29,8 +30,8 @@ public class ProductService
 
 		if (list == null) throw new RequiredObjectIsNullException();
 
-		logger.info("Get Product! >> " + list.size());
-	
+		logger.info(String.format("Get All Products! >> %s items", list.size()));
+
 		return list; 
 	 }
 
@@ -43,6 +44,8 @@ public class ProductService
 		var product = controller.getProduct(productId);
 
 		if (product == null) throw new RequiredObjectIsNullException();
+
+		logger.info(String.format("Get Product! >> %s", product.getTitle()));
 
 		logger.info("Get Product! >> " + product.getTitle());
 	
@@ -60,12 +63,31 @@ public class ProductService
 	
 		return list; 
 
-
 	 }
 
 	public List<CategoryDTO> getCategories()
-	{ return null; }
+	{ 
+
+		var list = controller.getCategories();
+
+		if (list == null) throw new RequiredObjectIsNullException();
+
+		logger.info(String.format("Get All Categories! >> %s items", list.size()));
+	
+		return list;
+
+	 }
 
 	public List<ProductDTO> getProductsByCategory(String categoryName)
-	{ return null; }
+	{ 
+
+		var list = controller.getProductsByCategory(categoryName);
+
+		if (list == null) throw new RequiredObjectIsNullException();
+
+		logger.info(String.format("Get All Products this category: '%s'>> %s items", categoryName, list.size()));
+	
+		return list; 
+
+	 }
 }

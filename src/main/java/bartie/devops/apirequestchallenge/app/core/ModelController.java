@@ -23,5 +23,15 @@ public class ModelController extends ModelSettings {
     {
         return HostAPI.getURLBySearch(route, query);
     } 
-   
+
+    public String getURLByDomain(String domain)
+    {
+        return getURLByDomain(domain, "");
+    } 
+
+    public String getURLByDomain(String domain, String subDomain)
+    {
+        return HostAPI.getURLByDomain(route, domain, subDomain);
+    } 
+
 }

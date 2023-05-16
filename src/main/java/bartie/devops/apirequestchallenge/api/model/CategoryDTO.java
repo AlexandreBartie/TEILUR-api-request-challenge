@@ -11,6 +11,11 @@ import lombok.ToString;
 @ToString
 public class CategoryDTO {
 
-    private String description;
+    private String name;
+
+    public CategoryDTO(String name)
+    {
+        this.name = name;
+    }
     
 }

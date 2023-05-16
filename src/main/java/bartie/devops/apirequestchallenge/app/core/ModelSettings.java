@@ -23,6 +23,15 @@ class HostApiSettings {
     public String getURLBySearch(String route, String query)
     {
         return String.format(getURL(route)+"/search?q=%s", query);
-    } 
+    }
 
+    public String getURLByDomain(String route, String domain, String subDomain)
+    {
+        var complement = domain;
+        
+        if (subDomain != "")
+        complement += "/" + subDomain;
+        
+        return getURL(route) + "/" + complement;
+    } 
 }
